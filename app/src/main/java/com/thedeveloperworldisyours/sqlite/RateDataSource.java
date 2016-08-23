@@ -14,31 +14,31 @@ import android.database.sqlite.SQLiteDatabase;
  */
 public class RateDataSource {
     // Database fields
-    private SQLiteDatabase database;
-    private MySQLiteHelper dbHelper;
-    private String[] allColumns = {MySQLiteHelper.COLUMN_ID,
+    private SQLiteDatabase mDatabase;
+    private MySQLiteHelper mDbHelper;
+    private String[] mAllColumns = {MySQLiteHelper.COLUMN_ID,
             MySQLiteHelper.COLUMN_COIN, MySQLiteHelper.COLUMN_VALUE};
 
     public RateDataSource(Context context) {
-        dbHelper = new MySQLiteHelper(context);
+        mDbHelper = new MySQLiteHelper(context);
     }
 
     public void open() throws SQLException {
-        database = dbHelper.getWritableDatabase();
+        mDatabase = mDbHelper.getWritableDatabase();
     }
 
     public void close() {
-        dbHelper.close();
+        mDbHelper.close();
     }
 
     public Rate createRate(String coin, double value) {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_COIN, coin);
         values.put(MySQLiteHelper.COLUMN_VALUE, value);
-        long insertId = database.insert(MySQLiteHelper.TABLE_RATE, null,
+        long insertId = mDatabase.insert(MySQLiteHelper.TABLE_RATE, null,
                 values);
-        Cursor cursor = database.query(MySQLiteHelper.TABLE_RATE,
-                allColumns, MySQLiteHelper.COLUMN_ID + " = " + insertId, null,
+        Cursor cursor = mDatabase.query(MySQLiteHelper.TABLE_RATE,
+                mAllColumns, MySQLiteHelper.COLUMN_ID + " = " + insertId, null,
                 null, null, null);
         cursor.moveToFirst();
         Rate newComment = cursorToRate(cursor);
@@ -49,15 +49,15 @@ public class RateDataSource {
     public void deleteRate(Rate comment) {
         long id = comment.getId();
         System.out.println("Rate deleted with id: " + id);
-        database.delete(MySQLiteHelper.TABLE_RATE, MySQLiteHelper.COLUMN_ID
+        mDatabase.delete(MySQLiteHelper.TABLE_RATE, MySQLiteHelper.COLUMN_ID
                 + " = " + id, null);
     }
 
     public List<Rate> getAllRates() {
         List<Rate> rates = new ArrayList<Rate>();
 
-        Cursor cursor = database.query(MySQLiteHelper.TABLE_RATE,
-                allColumns, null, null, null, null, null);
+        Cursor cursor = mDatabase.query(MySQLiteHelper.TABLE_RATE,
+                mAllColumns, null, null, null, null, null);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {

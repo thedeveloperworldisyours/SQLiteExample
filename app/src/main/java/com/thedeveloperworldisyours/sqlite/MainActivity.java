@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private RateDataSource mDatasource;
+    private RateDataSource mDataSource;
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -21,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mDatasource = new RateDataSource(this);
-        mDatasource.open();
+        mDataSource = new RateDataSource(this);
+        mDataSource.open();
 
-        mValues = mDatasource.getAllRates();
+        mValues = mDataSource.getAllRates();
 
         mRecyclerView = (RecyclerView) findViewById(R.id.activity_main_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -48,13 +48,13 @@ public class MainActivity extends AppCompatActivity {
                 int nextInt = new Random().nextInt(3);
                 Random randomno = new Random();
                 // save the new Rate to the database
-                Rate = mDatasource.createRate(rates[nextInt], randomno.nextDouble());
+                Rate = mDataSource.createRate(rates[nextInt], randomno.nextDouble());
                 mValues.add(Rate);
                 break;
             case R.id.delete:
                 if (mValues.size() > 0) {
                     Rate = (Rate) mValues.get(0);
-                    mDatasource.deleteRate(Rate);
+                    mDataSource.deleteRate(Rate);
                     mValues.remove(Rate);
                 }
                 break;
@@ -64,13 +64,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        mDatasource.open();
+        mDataSource.open();
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        mDatasource.close();
+        mDataSource.close();
         super.onPause();
     }
 

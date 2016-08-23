@@ -17,30 +17,30 @@ public class CustomRecyclerViewAdapter extends RecyclerView
         .DataObjectHolder> {
     private static String LOG_TAG = "MyRecyclerViewAdapter";
     private List<Rate> mDataset;
-    private static MyClickListener myClickListener;
+    private static MyClickListener mMyClickListener;
 
     public static class DataObjectHolder extends RecyclerView.ViewHolder
             implements View
             .OnClickListener {
-        TextView label;
-        TextView dateTime;
+        TextView mLabel;
+        TextView mDateTime;
 
         public DataObjectHolder(View itemView) {
             super(itemView);
-            label = (TextView) itemView.findViewById(R.id.item_list_view_text_view);
-            dateTime = (TextView) itemView.findViewById(R.id.item_list_view_text_view_two);
+            mLabel = (TextView) itemView.findViewById(R.id.item_list_view_text_view);
+            mDateTime = (TextView) itemView.findViewById(R.id.item_list_view_text_view_two);
             Log.i(LOG_TAG, "Adding Listener");
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            myClickListener.onItemClick(getPosition(), v);
+            mMyClickListener.onItemClick(getPosition(), v);
         }
     }
 
     public void setOnItemClickListener(MyClickListener myClickListener) {
-        this.myClickListener = myClickListener;
+        this.mMyClickListener = myClickListener;
     }
 
     public CustomRecyclerViewAdapter(List<Rate> myDataset) {
@@ -59,8 +59,8 @@ public class CustomRecyclerViewAdapter extends RecyclerView
 
     @Override
     public void onBindViewHolder(DataObjectHolder holder, int position) {
-        holder.label.setText(mDataset.get(position).getCoin());
-        holder.dateTime.setText(String.valueOf(mDataset.get(position).getValue()));
+        holder.mLabel.setText(mDataset.get(position).getCoin());
+        holder.mDateTime.setText(String.valueOf(mDataset.get(position).getValue()));
         Log.d("TAG", mDataset.get(position).getCoin());
     }
 
