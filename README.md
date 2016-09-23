@@ -1,7 +1,7 @@
 # SQLiteExample
 Android SQLite Test using SQLiteOpenHelper
 
-<img src="http://thedeveloperworldisyours.com/wp-content/uploads/theWorldInRed.jpg"  alt="" />
+<img src="http://thedeveloperworldisyours.com/wp-content/uploads/AndroidSQLiteTest.gif"  alt="" />
 
 # About
   In this app using SQLiteOpenHelper, with this popular libraries: Butterknife, Mockito and Espresso (Android UI tests).
