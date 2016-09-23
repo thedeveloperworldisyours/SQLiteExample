@@ -1,12 +1,12 @@
 # SQLiteExample
-SQLite Example using SQLiteOpenHelper
+Android SQLite Test using SQLiteOpenHelper
 
 <img src="http://thedeveloperworldisyours.com/wp-content/uploads/theWorldInRed.jpg"  alt="" />
 
 # About
   In this app using SQLiteOpenHelper, with this popular libraries: Butterknife, Mockito and Espresso (Android UI tests).
   
-  Also visit my blog: **[The developer world is yours](http://thedeveloperworldisyours.com/)**
+  Also visit my blog: **[The developer world is yours](http://thedeveloperworldisyours.com/android/android-sqlite-test/#sthash.12QNTpWd.dpbs)**
   Libraries
 ---------
 
