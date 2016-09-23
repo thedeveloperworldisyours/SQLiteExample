@@ -9,6 +9,9 @@ import android.view.View;
 import java.util.List;
 import java.util.Random;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity {
     private RateDataSource mDataSource;
 
@@ -20,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ButterKnife.bind(this);
 
         mDataSource = new RateDataSource(this);
         mDataSource.open();
@@ -36,28 +41,24 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    // Will be called via the onClick attribute
-    // of the buttons in main.xml
-    public void onClick(View view) {
-        @SuppressWarnings("unchecked")
 
-        Rate Rate = null;
-        switch (view.getId()) {
-            case R.id.add:
-                String[] rates = new String[] { "jPY", "aUD", "bGN" };
-                int nextInt = new Random().nextInt(3);
-                Random randomno = new Random();
-                // save the new Rate to the database
-                Rate = mDataSource.createRate(rates[nextInt], randomno.nextDouble());
-                mValues.add(Rate);
-                break;
-            case R.id.delete:
-                if (mValues.size() > 0) {
-                    Rate = (Rate) mValues.get(0);
-                    mDataSource.deleteRate(Rate);
-                    mValues.remove(Rate);
-                }
-                break;
+    @OnClick(R.id.activity_main_add)
+    public void add(View view) {
+        String[] rates = new String[]{"jPY", "aUD", "bGN"};
+        int nextInt = new Random().nextInt(3);
+        Random randomno = new Random();
+        // save the new Rate to the database
+        Rate rate = mDataSource.createRate(rates[nextInt], randomno.nextDouble());
+        mValues.add(rate);
+        mAdapter.notifyDataSetChanged();
+    }
+
+    @OnClick(R.id.activity_main_delete)
+    public void delete(View view) {
+        if (mValues.size() > 0) {
+            Rate rate = (Rate) mValues.get(0);
+            mDataSource.deleteRate(rate);
+            mValues.remove(rate);
         }
         mAdapter.notifyDataSetChanged();
     }

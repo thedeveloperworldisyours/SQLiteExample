@@ -16,18 +16,18 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/add"
+            android:id="@+id/activity_main_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:padding="@dimen/activity_main_padding_button"
             android:layout_margin="@dimen/activity_main_margin_button"
             android:onClick="onClick"
-            android:text="@string/activity_main_delete_first"
+            android:text="@string/activity_main_add_new"
             android:textColor="@android:color/white" />
 
         <Button
-            android:id="@+id/delete"
+            android:id="@+id/activity_main_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
