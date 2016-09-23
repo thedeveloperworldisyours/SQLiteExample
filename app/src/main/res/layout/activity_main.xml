@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/theworldinred"
     tools:context="com.thedeveloperworldisyours.sqlite.MainActivity">
 
     <LinearLayout
@@ -18,15 +19,23 @@
             android:id="@+id/add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/activity_main_padding_button"
+            android:layout_margin="@dimen/activity_main_margin_button"
             android:onClick="onClick"
-            android:text="Add New" />
+            android:text="@string/activity_main_delete_first"
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/activity_main_padding_button"
+            android:layout_margin="@dimen/activity_main_margin_button"
             android:onClick="onClick"
-            android:text="Delete First" />
+            android:text="@string/activity_main_delete_first"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 
@@ -34,7 +43,6 @@
         android:id="@+id/activity_main_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/activity_main_group"
-        android:background="@android:color/darker_gray" />
+        android:layout_below="@+id/activity_main_group"/>
 
 </RelativeLayout>

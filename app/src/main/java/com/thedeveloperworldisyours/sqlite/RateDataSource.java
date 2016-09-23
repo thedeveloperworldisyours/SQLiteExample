@@ -77,4 +77,9 @@ public class RateDataSource {
         rate.setValue(cursor.getDouble(2));
         return rate;
     }
+
+    public void deleteAll() {
+
+        mDatabase.delete(MySQLiteHelper.TABLE_RATE, null, null);
+    }
 }

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorTransparentPrimaryDark"
     android:orientation="horizontal">
 
     <TextView
@@ -10,14 +11,20 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/activity_horizontal_margin"
         android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:typeface="sans"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/list_item_size_text" />
 
     <TextView
         android:id="@+id/item_list_view_text_view_two"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:padding="@dimen/activity_horizontal_margin"
+        android:typeface="serif"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/list_item_size_text" />
 </LinearLayout>
