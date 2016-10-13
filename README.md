@@ -4,7 +4,7 @@ Android SQLite Test using SQLiteOpenHelper
 <img src="http://thedeveloperworldisyours.com/wp-content/uploads/AndroidSQLiteTest.gif"  width="300px" />
 
 # About
-  In this app using SQLiteOpenHelper, with this popular libraries: Butterknife, Mockito and Espresso (Android UI tests).
+  In this app using SQLiteOpenHelper, with this popular libraries: Butterknife and Espresso (Android UI tests).
   
   Also I explain more in this post: **[Android SQLite Test](http://thedeveloperworldisyours.com/android/android-sqlite-test/)**
   Libraries
