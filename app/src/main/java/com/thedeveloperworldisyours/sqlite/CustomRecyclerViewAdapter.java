@@ -16,7 +16,7 @@ public class CustomRecyclerViewAdapter extends RecyclerView
         .Adapter<CustomRecyclerViewAdapter
         .DataObjectHolder> {
     private static String LOG_TAG = "MyRecyclerViewAdapter";
-    private List<Rate> mDataset;
+    private List<Rate> mDataSet;
     private static MyClickListener mMyClickListener;
 
     public static class DataObjectHolder extends RecyclerView.ViewHolder
@@ -37,6 +37,7 @@ public class CustomRecyclerViewAdapter extends RecyclerView
         public void onClick(View v) {
 //            mMyClickListener.onItemClick(getPosition(), v);
         }
+
     }
 
     public void setOnItemClickListener(MyClickListener myClickListener) {
@@ -44,7 +45,7 @@ public class CustomRecyclerViewAdapter extends RecyclerView
     }
 
     public CustomRecyclerViewAdapter(List<Rate> myDataset) {
-        mDataset = myDataset;
+        mDataSet = myDataset;
     }
 
     @Override
@@ -58,25 +59,24 @@ public class CustomRecyclerViewAdapter extends RecyclerView
     }
 
     @Override
-    public void onBindViewHolder(DataObjectHolder holder, int position) {
-        holder.mLabel.setText(mDataset.get(position).getCoin());
-        holder.mDateTime.setText(String.valueOf(mDataset.get(position).getValue()));
-        Log.d("TAG", mDataset.get(position).getCoin());
+    public void onBindViewHolder(DataObjectHolder viewHolder, int position) {
+        viewHolder.mLabel.setText(mDataSet.get(position).getCoin());
+        viewHolder.mDateTime.setText(String.valueOf(mDataSet.get(position).getValue()));
     }
 
     public void addItem(Rate dataObj, int index) {
-        mDataset.add(dataObj);
+        mDataSet.add(dataObj);
         notifyItemInserted(index);
     }
 
     public void deleteItem(int index) {
-        mDataset.remove(index);
+        mDataSet.remove(index);
         notifyItemRemoved(index);
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        return mDataSet.size();
     }
 
     public interface MyClickListener {

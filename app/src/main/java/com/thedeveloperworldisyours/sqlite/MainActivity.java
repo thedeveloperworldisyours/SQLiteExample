@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.activity_main_add)
     public void add(View view) {
-        String[] rates = new String[]{"jPY", "aUD", "bGN"};
+        String[] rates = new String[]{"JPY", "AUD", "BGN"};
         int nextInt = new Random().nextInt(3);
         Random randomno = new Random();
         // save the new Rate to the database

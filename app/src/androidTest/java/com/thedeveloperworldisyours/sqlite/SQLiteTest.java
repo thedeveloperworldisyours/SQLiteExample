@@ -15,6 +15,7 @@ import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by javierg on 07/09/16.
@@ -88,4 +89,23 @@ public class SQLiteTest {
         rate = mDataSource.getAllRates();
         assertThat(rate.size(), is(1));
     }
+
+    @Test
+    public void testData() {
+        mDataSource.deleteAll();
+        mDataSource.createRate("AUD", 1.2);
+        mDataSource.createRate("JPY", 1.993);
+        mDataSource.createRate("BGN", 1.66);
+
+        List<Rate> rate = mDataSource.getAllRates();
+
+        assertEquals("AUD", rate.get(0).getCoin());
+        assertEquals("JPY", rate.get(1).getCoin());
+        assertEquals("BGN", rate.get(2).getCoin());
+
+        assertEquals( 1.2, rate.get(0).getValue(), 1);
+        assertEquals( 1.993, rate.get(1).getValue().intValue(), 1);
+        assertEquals( 1.66, rate.get(1).getValue().intValue(), 1);
+    }
+
 }
