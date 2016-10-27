@@ -1,8 +1,8 @@
 # SQLiteExample
 Android SQLite Test using SQLiteOpenHelper with jUnit and Espresso.
-
+<p align="center">
 <img src="http://thedeveloperworldisyours.com/wp-content/uploads/AndroidSQLiteTest.gif"  width="300px" />
-
+</p>
 # About
   In this app using SQLiteOpenHelper, with this popular libraries: JUnit, Butterknife and Espresso (Android UI tests).
   
