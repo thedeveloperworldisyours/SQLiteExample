@@ -14,6 +14,13 @@ Android SQLite Test using SQLiteOpenHelper with jUnit and Espresso.
  * **[Espresso](https://google.github.io/android-testing-support-library/docs/espresso/index.html)**
  * **[AndroidJUnit4](https://developer.android.com/reference/android/support/test/runner/AndroidJUnit4.html)**
  
+ Also visit my blog: **[The developer world is yours](http://thedeveloperworldisyours.com)**
+ 
+ <a href="http://thedeveloperworldisyours.com/">
+  <img alt="The developer world is yours" src="https://github.com/CabezasGonzalezJavier/AddTextViewButton/blob/master/TheDeveloperWordIsYours.png" />
+</a>
+  
+---------
 
 # Requirements
 
